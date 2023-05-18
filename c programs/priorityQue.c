@@ -1,58 +1,78 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 5
-int lqueue[MAX];
-int front=-1,rear=-1;
+int pqueue[MAX];
+int priority[MAX]={-1,-1,-1,-1,-1};
+
 int isFull(){
-	if(rear==MAX-1)
-	    return 0;
-	return 1;
+	for(int i=0;i<MAX;i++){
+		if(priority[i]==-1)
+	        return 1;
+	}
+	return 0;
 }
 
 int isEmpty(){
-	if(rear==-1)
-	    return 0;
-	return 1;
+	for(int i=0;i<MAX;i++){
+		if(priority[i]!=-1)
+	        return 1;
+	}
+	return 0;
+}
+
+int peek(){
+	int index=0,min;
+	min=MAX;
+	for(int i=0;i<MAX;i++){
+		if(min>priority[i] && priority[i]!=-1){
+			min=priority[i];
+			index=i;
+		}
+	}
+	return index;
 }
 
 int enQueue(){
-	int n,status = isFull();
+	int i,p,n,status = isFull();
 	if(status==0)
 	   return 0;
 	
 	printf("Enter a Number:");
 	scanf("%d",&n);
-	if(front==-1){
-		front++;
-		lqueue[++rear]=n;
+	printf("Enter Priority:");
+	scanf("%d",&p);
+	for(i=0;i<MAX;i++){
+		if(priority[i]==-1){
+			break;
+		}
 	}
-	else{
-		lqueue[++rear]=n;
-	}
+	pqueue[i]=n;
+	priority[i]=p;
 	return 1;
 }
 
 int dQueue(){
-	int status = isEmpty();
+	int index,status = isEmpty();
 	if(status == 0)
 	    return 0;
-	    
-	front++;
-	if(front==rear+1){
-		front = -1;
-		rear = -1;
-	}
+	index = peek();
+	printf("Deleted Data = %d",pqueue[index]);
+	pqueue[index] = 0;
+	printf("\n index number  is %d",index);
+	priority[index] = -1;
 	return 1;
 }
 
 int traverse(){
-	//nt i=0;
-	int status = isEmpty();
-	if(status == 0){
-		return 0;
-	}
-	for(int i=front;i<=rear;i++){
-		printf("%d\t",lqueue[i]);
+	int i,status = isEmpty();
+	if(status == 0)
+	    return 0;
+	printf("Data-->Priority\n");
+	for(i=0;i<MAX;i++){
+		if(priority[i]==-1)
+		    continue;
+		
+		printf("%d  -->  %d\n",pqueue[i],priority[i]);
 	}
 	return 1;
 }
@@ -77,7 +97,6 @@ int main(){
 				else{
 					printf("Successfully Inserted:\n");
 				}
-				//printf("1");
 				break;
 			}
 			case 2:{

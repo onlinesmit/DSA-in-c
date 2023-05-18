@@ -278,7 +278,7 @@ int main()
             }
             else
             {
-                printf("Not perform successfully\n");
+                printf("Data not found\n");
             }
             break;
 
@@ -290,7 +290,7 @@ int main()
             }
             else
             {
-                printf("Not perform successfully\n");
+                printf("Data not found \n");
             }
             break;
 
@@ -298,12 +298,16 @@ int main()
             status = delete_at_pos();
             if (status == 1)
             {
-                printf("\n delete at pos perform successfully\n");
+                printf("\n Delete at the possitin successfully \n");
             }
             else
             {
-                printf("Not perform successfully\n");
+                printf("Not perform successfully \n");
             }
+            break;
+
+            case 9:
+            exit(1);
             break;
         }
     }

@@ -7,7 +7,7 @@ typedef struct linkedlist{
 	struct linkedlist *prev;
 }list;
 
-list *new_node=NULL, *head=NULL, *last=NULL, *temp=NULL, *pre;
+list *new_node= NULL, *head=NULL, *last=NULL, *temp=NULL, *pre;
 int n;
 
 int insertAtEnd(){
@@ -36,7 +36,7 @@ int insertAtBegin(){
 	if(new_node == NULL){
 		return 0;
 	}
-	printf("Enter Nuber:");
+	printf("Enter Number:");
 	scanf("%d",&n);
 	new_node->data = n;
 	new_node->prev = NULL;
@@ -80,6 +80,54 @@ int deleteAtBegin(){
 	return 1;
 }
 
+int insert_at_pos()
+{
+    int n, poss, i = 1;
+    new_node = (list *)malloc(sizeof(list));
+    if (new_node == NULL)
+    {
+        return 0;
+    }
+    printf("Enter the data you want to insert\n");
+    scanf("%d", &n);
+    printf("Enter the position where you want to insert\n");
+    scanf("%d", &poss);
+    new_node->data = n;
+    temp = head;
+    while (i < poss - 1)
+    {
+        temp = temp->next;
+        i++;
+    }
+	new_node->prev = temp;
+    new_node->next = temp->next;
+    temp->next = new_node;
+	temp->next->prev = new_node;
+
+    return 1;
+}
+
+int delete_at_pos(){
+	int pos,i=1;
+	printf("\nEnter Position Number:");
+	scanf("%d",&pos);
+	temp = head;
+	if(head==NULL){
+		return 0;
+	}
+	while(i<pos){
+		pre=temp;
+		temp=temp->next;
+		i++;
+	}
+	new_node = temp->next;
+	pre->next = temp->next;
+	new_node->prev = temp->prev;
+	free(temp);
+	return 1;	
+}
+
+
 int traverse(){
 	temp=head;
 	if(head==NULL){
@@ -115,10 +163,10 @@ int main()
 	while(1){
 		printf("1. Insert at End:\n");
 		printf("2. Insert at Begin:\n");
-		printf("3. Insert at Perticuler Position:\n");
+		printf("3. Insert at Position:\n");
 		printf("4. Delete at End:\n");
 		printf("5. Delete at Begin:\n");
-		printf("6. Delete at Pertculer Position:\n");
+		printf("6. Delete at Position:\n");
 		printf("7. Traverse:\n");
 		printf("8. Search:\n");
 		printf("9. Exit:\n");
@@ -147,6 +195,13 @@ int main()
 				break;
 			}
 			case 3:{
+				status = insert_at_pos();
+				if(status == 0){
+					printf("Operation not performed: \n");
+				}
+				else{
+					printf("Insert at the position successfully: \n");
+				}
 				break;
 			}
 			case 4:{
@@ -170,6 +225,14 @@ int main()
 				break;
 			}
 			case 6:{
+				status = delete_at_pos();
+				if(status == 0){
+					printf("No Data:\n");
+				}
+				else{
+					printf("Delete Successfully:\n");
+				}
+
 				break;
 			}
 			case 7:{
