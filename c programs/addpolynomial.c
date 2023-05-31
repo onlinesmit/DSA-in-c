@@ -55,7 +55,7 @@ void main()
     {
         printf("%d X %d \t ", t1->coff, t1->exp);
         t1 = t1->next;
-    }//end of while
+    } //end of while
 
  //for second polynomial equation.....
 

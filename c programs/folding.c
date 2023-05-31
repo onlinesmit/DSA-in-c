@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main(){
-	long long int num = 220192014001;
+	long long int num = 2201920140167;
 	int sum=0,temp;
 	while(num>0){
 		temp = num % 100;

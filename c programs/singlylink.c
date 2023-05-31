@@ -97,6 +97,7 @@ int insert_pos()
 
     return 1;
 }
+
 int insert_particular_num()
 {
     int n, num, count = 0;
