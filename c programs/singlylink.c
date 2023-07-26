@@ -20,13 +20,15 @@ int insert_end()
     scanf("%d", &n);
     newnode->data = n;
     newnode->next = NULL;
-
-   /* while (temp->next!=NULL)
-    {
-        temp=temp->next;
-    }
-    temp->next=newnode;
-    */
+    // if(head ==NULL){
+    //     head = newnode;
+    // }
+    // while (temp->next!=NULL)
+    // {
+    //     temp=temp->next;
+    // }
+    // temp->next=newnode;
+    
     
      if (head == NULL)
     {
@@ -53,7 +55,44 @@ int traverse()
     {
         printf("%d\t", temp->data);
         temp = temp->next;
+    } 
+
+    return 1;
+}
+
+int getLength()
+{
+    int count=0;
+    temp = head;
+    if (temp == NULL)
+    {
+        return 0;
     }
+    while (temp != NULL)
+    {
+        count++; 
+        temp = temp->next;
+    }
+    printf("The lengh is: %d", count);
+
+    return 1;
+}
+
+int reverse()
+{   prev = 0;
+    temp =newnode= head;
+    if (newnode == NULL)
+    {
+        return 0;
+    }
+    while (newnode != NULL)
+    {
+        newnode = newnode->next;
+        temp->next = prev;
+        prev = temp;
+        temp =newnode;
+    }
+    head = prev;
 
     return 1;
 }
@@ -108,11 +147,16 @@ int insert_particular_num()
     }
     printf("Enter the data you want to insert\n");
     scanf("%d", &n);
+    newnode->data = n;
     printf("Enter the number after you want to insert\n");
     scanf("%d", &num);
 
     // Search the number and note its pos
     temp = head;
+    if (temp == NULL)
+    {
+        return 2;
+    }
     while (temp != NULL)
     {
         if (temp->data == num)
@@ -120,12 +164,12 @@ int insert_particular_num()
         temp = temp->next;
         count++;
     }
-    if (temp == NULL)
-    {
-        return 2;
-    }
+    // if (temp == NULL)
+    // {
+    //     return 2;
+    // }
 
-    newnode->data = n;
+    // newnode->data = n;
     newnode->next = temp->next;
     temp->next = newnode;
     return 1;
@@ -147,7 +191,7 @@ int delete_at_end()
 
     }
     prev->next=NULL;
-    tail=prev;
+   // tail=prev;
     if(temp==head)
     {
         head=NULL;
@@ -205,7 +249,7 @@ int main()
     int choice, status = 0;
     while (1)
     {
-        printf("\n1. Insert at end \n 2. Insert at begining \n 3. Insert at position \n 4. Traversre or Display \n 5. Insert at pariticular number \n 6.Delete at End \n 7.Delete at Begining \n 8.Delete at Particular-Pos\n");
+        printf("\n1. Insert at end \n 2. Insert at begining \n 3. Insert at position \n 4. Traversre or Display \n 5. Insert at pariticular number \n 6.Delete at End \n 7.Delete at Begining \n 8.Delete at Particular-Pos\n 9. GetLength of list \n 10. Reverse \n 11. Exit \n");
         printf("Enter your choice\n");
         scanf("%d", &choice);
         switch (choice)
@@ -308,6 +352,30 @@ int main()
             break;
 
             case 9:
+            status = getLength();
+            if (status == 1)
+            {
+                printf("\n successfully printed \n");
+            }
+            else
+            {
+                printf("Not perform successfully \n");
+            }
+            break;
+
+            case 10:
+            status = reverse();
+            if (status == 1)
+            {
+                printf("\n successfully reverse \n");
+            }
+            else
+            {
+                printf("Not perform successfully \n");
+            }
+            break;
+
+            case 11:
             exit(1);
             break;
         }

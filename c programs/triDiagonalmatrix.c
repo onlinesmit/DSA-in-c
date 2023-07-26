@@ -31,7 +31,7 @@ int main(){
         for(j=0; j<n; j++)
         {   
             if(i+1<j || i>j+1){
-                if( arr[i][j] != 0) //here we can change condition if(i>j && arr[i][j]==0)
+                if( arr[i][j] != 0)  
                 {
                  flag = 1;
                  break;
@@ -41,7 +41,7 @@ int main(){
         if(flag==1)
         break;
         }
-         if(flag==0)    //if the condition is change then for printing use (flag==0)
+         if(flag==0)    
          {
             printf("The given matrix is tridiagonal matrix !!");
             }

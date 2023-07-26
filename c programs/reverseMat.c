@@ -3,7 +3,7 @@
 
 int main(){
 
-    int n, arr[MAX];
+    int n,i,j,temp, arr[MAX];
     printf("Enter the value of matrix: \n");
     scanf("%d",&n);
 
@@ -11,12 +11,13 @@ int main(){
 
         for(int i=0; i<n; i++)
         {
-            scanf("%d", &arr[i]);
+            scanf("%d", &arr[i]); 
         }
-    int j;
+    //int j;
         for(int i=0, j=n-1; i<j; i++, j--)
+         
         {
-           int temp;
+           //int temp;
            temp = arr[i];
            arr[i]= arr[j];
            arr[j]=temp;

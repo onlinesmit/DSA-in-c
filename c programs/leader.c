@@ -18,9 +18,9 @@ int main(){
     for(j=i+1; j<n; j++)
     {
         if(temp<arr[j])
-        break;
+        break; 
     }
-    if(j==n)
+     if(j==n)
         printf("Leader is : %d\n",arr[i]);
    }
     return 0;

@@ -58,12 +58,9 @@ return 0;
 //                 temp = arr[j];
 //                 arr[j]= arr[j+1];
 //                 arr[j+1]= temp;
-//             }
-        
-//         }
-        
+//             }       
+//         }       
 //     }
-
 // return 0;
 // }
 
@@ -83,6 +80,25 @@ return 0;
 //     }  
 //}
 
+// int selSort(int arr[], int n)
+// {
+//     int i, j, temp, min;
+//     for ( i = 0; i < n; i++)
+//     {
+ //           min = i;
+//         for ( j = i+1; j < n; j++)
+//         {
+//             if(arr[j]<arr[min]){
+                 //min = j;
+               //  }
+//                 temp = arr[i];
+//                 arr[i] = arr[min];
+//                 arr[min] = temp;
+//             
+//         }    
+//     }  
+//}
+
 
 int insSort(int arr[], int n)
 {
@@ -92,7 +108,7 @@ int insSort(int arr[], int n)
         key = arr[i];
         j = i - 1;
 
-         while (j >= 0 && arr[j] > key)
+         while (j >= 0 && arr[j] > key) 
         {
             arr[j + 1] = arr[j];
             j = j - 1;

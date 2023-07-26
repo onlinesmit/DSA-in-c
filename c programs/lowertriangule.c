@@ -30,7 +30,7 @@ int main(){
     {
         for(j=0; j<n; j++)
         {
-                if( i<j && arr[i][j] == 0) //orif( i<j && arr[i][j] != 0)
+                if( i<j && arr[i][j] == 0) //or if( i<j && arr[i][j] != 0)
                 flag = 1; 
         }
     }

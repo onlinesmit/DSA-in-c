@@ -14,7 +14,7 @@ int main(){
 	printf("Enter The Number:");
 	scanf("%d",&n);
 	string str[10]={"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
-	cout << "Ans = ";
+	cout << "Ans = "  ;
 	fun(n,str);
 	return 0;
 }
